@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            
+        }
+
+        button[type="submit"] {
+            background-color: #1564be;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #00a9ecea;
+        }
+
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="city">Enter City Name:</label>
+        <input type="text" id="city" name="city">
+        <button type="submit" id="submitButton">Get Weather</button>
+    </form>
+
+    <script>
+        // JavaScript to change button color on click
+        document.getElementById("submitButton").addEventListener("click", function() {
+            this.style.backgroundColor = "#0056b3"; // Change color on click
+        });
+    </script>
+</body>
+</html>

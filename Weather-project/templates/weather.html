@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather APP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            text-transform: capitalize;
+        }
+        
+        .weather-info {
+            margin-bottom: 20px;
+        }
+        
+        .weather-info p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .category-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .category-list li {
+            flex: 1;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-list li:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .category-list li.active {
+            color: #333;
+            font-weight: bold;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather in {{ weather.city }}</h2>
+        <div class="weather-info">
+            <p>Time: {{ weather.time }}</p>
+            <p>Temperature: {{ weather.temperature }}°C</p>
+            <p>Feels: {{ weather.feels_like }}°C</p>
+            <p>Description: {{ weather.description }}</p>
+            <p>Wind: {{ weather.wind_speed }}m/s</p>
+            <p>Humidity: {{ weather.humidity }}%</p>
+            <p>UV index: {{ weather.uv_index }}</p>
+            <p>Sunrise: {{ weather.sunrise }}</p>
+            <p>Sunset: {{ weather.sunset }}</p>
+        </div>
+        
+        <ul class="category-list">
+            <li class="active">Today</li>
+            <li>Tomorrow</li>
+            <li>Next 7 days</li>
+        </ul>
+
+        <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather Icon">
+        
+        <p><a id="forecastLink" href="#" target="_blank">Enter New City: &gt;</a></p>
+
+        
+    </div>
+    
+    <script>
+        // Get the input element for the city
+        const cityInput = document.getElementById('city');
+        
+        // Get the link element for the 10-day forecast
+        const forecastLink = document.getElementById('forecastLink');
+        
+        // Add event listener to update the href attribute of the link when input changes
+        cityInput.addEventListener('input', function() {
+            const city = cityInput.value.trim(); // Get the trimmed value of the input
+            
+            // Update the href attribute of the link with the new city value
+            forecastLink.href = `https://www.weather.com/weather/tenday/${city}`;
+        });
+    </script>
+</body>
+</html>

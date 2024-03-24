@@ -1,0 +1,7 @@
+body {
+    background-image: url('photo/360_F_259917930_7SZpJBX0sXUEKPvy9aI3cHCyEI5y9nR6.jpg'); /* Replace 'background_image.jpg' with the path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
